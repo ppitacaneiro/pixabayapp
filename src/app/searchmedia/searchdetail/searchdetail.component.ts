@@ -12,6 +12,7 @@ export class SearchdetailComponent implements OnInit {
 
   photoId?:number;
   photo?:Image;
+  isPhotoLoaded?:boolean;
 
   constructor(
     private route:ActivatedRoute,
@@ -19,9 +20,11 @@ export class SearchdetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isPhotoLoaded = false;
     this.photoId = parseInt(this.route.snapshot.params['id']);
     this.pixabayapiService.getPhoto(this.photoId).subscribe(
       (result) => {
+        this.isPhotoLoaded = true;
         this.photo = result.hits[0];
       },
       (error) => {
