@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Image } from '../models/image.model';
 
 @Injectable({
@@ -14,8 +15,8 @@ export class FavmediaService {
     this.favsImages.push(image);
   }
 
-  getAllFavsImages():void {
-    console.log(this.favsImages);
+  getAllFavsImages() {
+    return this.favsImages;
   }
 
 }
