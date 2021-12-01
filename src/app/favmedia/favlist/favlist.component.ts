@@ -1,4 +1,6 @@
+import { FavmediaService } from './../../services/favmedia.service';
 import { Component, OnInit } from '@angular/core';
+import { Image } from '../../models/image.model';
 
 @Component({
   selector: 'app-favlist',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavlistComponent implements OnInit {
 
-  constructor() { }
+  favsImages?:Image[];
+
+  constructor(private favMediaService:FavmediaService) { }
 
   ngOnInit() {
+    this.favsImages = this.favMediaService.getAllFavsImages();
   }
 
 }

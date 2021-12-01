@@ -1,3 +1,4 @@
+import { FavlistComponent } from './favmedia/favlist/favlist.component';
 import { SearchmediaModule } from './searchmedia/searchmedia.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
