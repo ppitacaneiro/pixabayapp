@@ -3,9 +3,17 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-<div class="container" *ngIf="isPhotoLoaded">
+<div class="container" *ngIf="isPhotoLoaded && photo != undefined">
   <div class="row">
     <img [src]="photo?.largeImageURL" class="photo">
+  </div>
+  <div class="row d-flex justify-content-center m-2">
+    <button type="button" class="btn btn-outline-danger" style="width: 20em;" (click)="addImageToFavs(photo)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+      </svg>
+      Favorites
+    </button>
   </div>
   <div class="row">
     <div class="col">
