@@ -7,7 +7,7 @@ import { SearchdetailComponent } from './searchdetail/searchdetail.component';
 const routes: Routes = [
   { path: 'form', component: SearchformComponent },
   { path: 'list', component: SearchlistComponent },
-  { path: 'detail', component: SearchdetailComponent }
+  { path: 'detail/:id', component: SearchdetailComponent }
 ];
 
 export const SearchmediaRoutes = RouterModule.forChild(routes);

@@ -1,3 +1,51 @@
-<p>
-  searchform works!
-</p>
+<div class="container">
+  <form [formGroup]="formSearch" (submit)="processSearch(formSearch.value)">
+    <div class="row mt-5">
+        <div class="col">
+          <label for="searchTerm" class="form-label">Search Term</label>
+          <input type="text" class="form-control" id="searchTerm" formControlName="searchTerm">
+        </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <label for="imageType" class="form-label" >Image Type</label>
+        <select class="form-select" id="imageType" formControlName="imageType">
+          <option *ngFor="let item of imageTypes;" [value]="item">{{ item }}</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="orientation" class="form-label">Orientation</label>
+        <select class="form-select" formControlName="imageOrientation">
+          <option *ngFor="let item of imageOrientations" [value]="item">{{ item }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select" id="category" formControlName="imageCategories">
+          <option *ngFor="let item of imageCategories" [value]="item">{{ item }}</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="colors" class="form-label">Colors</label>
+        <select class="form-select" formControlName="imageColors">
+          <option *ngFor="let item of imageColors" [value]="item">{{ item }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col text-center">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="text-center mt-5" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="resultsOfSearch">
+  <app-searchlist [results]="resultsOfSearch" [filterSearch]="filter" (isLoadingPage)="displayLoadingSpinner($event)"></app-searchlist>
+</div>
