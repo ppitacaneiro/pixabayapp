@@ -1,3 +1,25 @@
-<p>
-  searchlist works!
-</p>
+<div class="row card-group mt-3">
+  <div class="col-4"  *ngFor="let item of listOfImages">
+      <div class="card m-3">
+        <img [src]="item.webformatURL" class="thumb" (click)="getDetail(item.id)">
+      </div>
+  </div>
+</div>
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item" *ngIf="currentPage > 1">
+      <a class="page-link" aria-label="Previous" (click)="getPhotosByPage(currentPage - 1)">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item" *ngFor="let i of pagesArray" [ngClass]="{'active' : currentPage === i}">
+      <a class="page-link" (click)="getPhotosByPage(i)" style="cursor: pointer;">{{ i }}</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage < pages">
+      <a class="page-link" aria-label="Next" (click)="getPhotosByPage(currentPage + 1)">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+

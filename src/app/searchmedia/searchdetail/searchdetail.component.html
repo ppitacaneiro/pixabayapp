@@ -1,3 +1,26 @@
-<p>
-  searchdetail works!
-</p>
+
+<div class="container">
+  <div class="row">
+    <img [src]="photo?.largeImageURL" class="photo">
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card m-4">
+        <div class="card-header">
+          <h4>{{ photo?.id }}</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Tags </strong>{{ photo?.tags }}</li>
+          <li class="list-group-item"><strong>Width </strong>{{ photo?.imageWidth }}</li>
+          <li class="list-group-item"><strong>Height </strong>{{ photo?.imageHeight }}</li>
+          <li class="list-group-item"><strong>Size </strong>{{ photo?.imageSize }}</li>
+          <li class="list-group-item"><strong>Views </strong>{{ photo?.views }}</li>
+          <li class="list-group-item"><strong>Downloads </strong>{{ photo?.downloads }}</li>
+          <li class="list-group-item"><strong>Collections </strong>{{ photo?.collections }}</li>
+          <li class="list-group-item"><strong>Likes </strong>{{ photo?.likes }}</li>
+          <li class="list-group-item"><strong>User </strong>{{ photo?.user }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
